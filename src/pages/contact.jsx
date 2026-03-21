@@ -1,10 +1,12 @@
-import Millos from "../components/Millos"
+import Inicio from "../components/navBar"
+
 
 const Contact = () => {
 return (
     <>
-        <div className='text-2xl font-bold'>Contact</div>
-        <Millos />
+        <Inicio />
+        <h1>Welcome to Contact Us</h1>
+
     </>
     
 )

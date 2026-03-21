@@ -1,1 +1,8 @@
 @import "tailwindcss";
+@font-face {
+    font-family: "BarberiaFont";
+    src: url('./assets/fonts/Amarante-Regular.ttf') format('truetype');
+}
+@theme{
+    --font-Amarante: 'BarberiaFont', sans-serif;
+}

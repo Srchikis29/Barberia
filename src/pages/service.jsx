@@ -1,6 +1,11 @@
+import Inicio from "../components/navBar"
+
 const Service = () => {
 return (
-    <h1 className="text-7xl font-bold">Service</h1>
+    <>
+        <Inicio />
+        <h1>Welcome to Our Services</h1>
+    </>
 )
 }
 
