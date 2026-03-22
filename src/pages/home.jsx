@@ -1,17 +1,17 @@
-
-import Footer from "../components/Footer"
-import Inicio from "../components/navBar"
+import Footer from "../components/Footer";
+import Inicio from "../components/navBar";
+import Hero from "../components/Hero";
+import Button from "../components/Boton";
 
 const Home = () => {
-return (
-    <>  
-        <Inicio />
-            <h1 className="font-Amarante text-3xl font-bold mt-8 text-center"
-            >Welcome to Home</h1>
-        <Footer />
-        
+  return (
+    <>
+      <Inicio />
+      <Hero />
+      <Button text="Agenda tu cita ahora" />
+      <Footer />
     </>
-)
-}
+  );
+};
 
-export default Home
+export default Home;

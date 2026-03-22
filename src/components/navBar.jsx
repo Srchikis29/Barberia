@@ -1,4 +1,4 @@
-import LogoBarber from "../assets/LogoBarber.jpg";
+import LogoBarber from "../assets/LogoBarber.png";
 import { NavLink } from "react-router-dom";
 
 function Inicio() {
