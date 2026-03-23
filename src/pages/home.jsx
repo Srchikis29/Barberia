@@ -1,15 +1,18 @@
 import Footer from "../components/Footer";
 import Inicio from "../components/navBar";
 import Hero from "../components/Hero";
-import Button from "../components/Boton";
+import Cortes from "../components/Cortes";
+import Reseñas from "../components/Reseñas";
 
 const Home = () => {
   return (
     <>
       <Inicio />
       <Hero />
-      <Button text="Agenda tu cita ahora" />
+      <Cortes />
+      <Reseñas />
       <Footer />
+      
     </>
   );
 };

@@ -1,9 +1,9 @@
 import barberiaAZ from "../assets/barberiaAZ.jpg";
+import Button from "./Boton";
 
 function Hero() {
   return (
-    <section className="relative w-full h-[400px] md:h-[500px]">
-      {/* Imagen de fondo */}
+    <section className="relative w-full h-[400px] md:h-[500px]">      {/* Imagen de fondo */}
       <img
         src={barberiaAZ}
         alt="Barbería"
@@ -27,6 +27,13 @@ function Hero() {
           <p className="text-[#DBB42C] text-sm font-semibold mt-2">
             Cortes clásicos, estilos modernos, atención premium
           </p>
+
+          <div className="mt-5 md:mt-8 flex justify-start">
+            <Button
+              text="Agenda tu cita ahora"
+              className="relative left-4 md:left-6 top-2 md:top-3"
+            />
+          </div>
         </div>
       </div>
     </section>

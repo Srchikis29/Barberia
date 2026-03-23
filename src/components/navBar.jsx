@@ -1,4 +1,4 @@
-import LogoBarber from "../assets/LogoBarber.png";
+import LogoBarber from "../assets/LogoBarber .png";
 import { NavLink } from "react-router-dom";
 
 function Inicio() {
@@ -10,17 +10,19 @@ function Inicio() {
         "after:w-full after:h-[4px] after:bg-[#274C77] after:rounded-full ";
 
     const linkInactive =
-        "text-base text-gray-400 hover:text-[#274C77] font-Amarante";
+        "text-sm text-gray-400 hover:text-[#274C77] font-Amarante";
 
     return (
-        <nav className="bg-gray-50 shadow-md px-4 py-4">
+        <nav className="bg-white shadow-md px-4 py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
 
-        <img 
-            src={LogoBarber} 
-            alt="Logo"
-            className=" h-10 sm:h-12 w-auto object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
-        />
+        <div className="flex items-center gap-3">
+            <img
+                src={LogoBarber}
+                alt="Logo"
+                className="h-16 sm:h-16 md:h-18 w-auto object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
+            />
+        </div>
 
         <div className="flex-1 flex gap-0 justify-around items-center">
 
