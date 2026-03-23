@@ -15,7 +15,7 @@ function HeroService() {
         <div className="absolute bottom-0 left-0 w-full h-90 bg-linear-to-b from-transparent to-white"></div>
 
         {/* Contenido */}
-        <div className="absolute inset-0 flex  mt-60  tems-end">
+        <div className="absolute inset-0 flex  mt-40  tems-end">
             <div className="px-4 md:px-20 max-w-lg text-left">
             <h1 className="text-center font-Amarante text-6xl md:text-6xl text-black leading-none drop-shadow-lg">
                 LA BARBERIA
