@@ -1,11 +1,14 @@
 import Inicio from "../components/navBar"
-
+import HeroService from "../components/HeroService"
+import Contacto from "../components/Contacto"
 
 const Contact = () => {
 return (
     <>
         <Inicio />
-        <h1>Welcome to Contact Us</h1>
+        <HeroService />
+        <Contacto />
+        
 
     </>
     

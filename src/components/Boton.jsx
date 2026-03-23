@@ -1,18 +1,21 @@
-function Button({ text, onClick, className = '' }) {
+function Button({ text = 'Agenda tu cita ahora', onClick, className = '', disabled = false, type = 'button' }) {
   return (
     <button
-      onClick={onClick}
+      type={type}
+      onClick={disabled ? undefined : onClick}
+      disabled={disabled}
       className={`relative inline-flex items-center justify-center 
-  bg-[#8ecff5] px-3 py-2 font-medium text-[#1a5a8a] 
-  text-base 
-  shadow-[0_6px_16px_rgba(62,123,180,0.45)]
-  transition-all duration-300 ease-out 
-  hover:bg-[#7dc4f0] hover:-translate-y-0.5 
-  hover:shadow-[0_10px_22px_rgba(62,123,180,0.55)]
-  focus-visible:outline-none focus-visible:ring-2 
-  focus-visible:ring-[#a7d8ff] ${className}`}
+          px-6 py-3 text-lg font-semibold text-[#1a5a8a] bg-linear-to-r
+          from-[#9bc7f7] via-[#8ecff5] to-[#a4d8ff]
+          shadow-[0_8px_18px_rgba(62,123,180,0.35)] 
+          transition-all duration-300 ease-out hover:scale-[1.01]
+          hover:shadow-[0_12px_28px_rgba(62,123,180,0.5)] 
+          hover:-translate-y-0.5 focus-visible:outline-none 
+          focus-visible:ring-2 focus-visible:ring-[#a7d8ff] 
+          disabled:opacity-50 disabled:cursor-not-allowed 
+          disabled:hover:translate-y-0 ${className}`}
     >
-      <span className='absolute inset-0 rounded-xl bg-white/10 backdrop-blur-sm' />
+      <span className='absolute inset-0 bg-white/12 backdrop-blur-sm pointer-events-none' />
       <span className='relative'>{text}</span>
     </button>
   );

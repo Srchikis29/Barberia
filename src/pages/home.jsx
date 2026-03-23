@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import Cortes from "../components/Cortes";
 import Reseñas from "../components/Reseñas";
 
+
 const Home = () => {
   return (
     <>

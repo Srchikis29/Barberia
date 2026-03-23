@@ -3,7 +3,7 @@ import Button from "./Boton";
 
 function Hero() {
   return (
-    <section className="relative w-full h-[400px] md:h-[500px]">      {/* Imagen de fondo */}
+    <section className="relative w-full h-100 md:h-125">      {/* Imagen de fondo */}
       <img
         src={barberiaAZ}
         alt="Barbería"
@@ -11,7 +11,7 @@ function Hero() {
       />
 
       {/* Fade blanco abajo */}
-      <div className="absolute bottom-0 left-0 w-full h-90 bg-gradient-to-b from-transparent to-white"></div>
+      <div className="absolute bottom-0 left-0 w-full h-90 bg-linear-to-b from-transparent to-white"></div>
 
       {/* Contenido */}
       <div className="absolute inset-0 flex items-end">
