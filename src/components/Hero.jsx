@@ -31,6 +31,7 @@ function Hero() {
           <div className="mt-5 md:mt-8 flex justify-start">
             <Button
               text="Agenda tu cita ahora"
+              to={"/Reserve"}
               className="relative left-4 md:left-6 top-2 md:top-3"
             />
           </div>
