@@ -56,7 +56,7 @@ function Reseñas() {
                     key={review.id}
                     className='min-h-10 min-w-50 max-w-70 bg-gray-200 border border-[#274C77]/15 rounded-xl p-3 shadow-lg shadow-[#274C77]/10'
                 >
-                    <p className='pb-1 text-sm md:text-lg font-semibold text-[#274C77] mb-2'>"{review.quote}"</p>
+                    <p className='pb-1 text-sm md:text-lg font-semibold text-[#274C77] '>"{review.quote}"</p>
                     <p className='text-xs md:text-sm font-medium text-[#3f89b3]'>- {review.author}</p>
                 </article>
                 ))}
