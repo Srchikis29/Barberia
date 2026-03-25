@@ -8,7 +8,7 @@ const services = [
     image: corte,
     title: "Corte Basico",
     description:
-      "Un estilo limpio y preciso, pensado para resaltar tu personalidad con un acabado impecable.",
+      "Un estilo limpio y preciso, pensado para resaltar tu personalidad.",
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ function ServiceCard() {
       {services.map((service) => (
         <div className="p-3 flex gap-4 bg-[#E7ECEF] rounded-2xl overflow-hidden">
           {/* Imagen */}
-          <div className="w-45 h-60 md:w-30 md:h-40 flex-shrink-0">
+          <div className="w-45 h-65 md:w-30 md:h-40 flex-shrink-0">
             <img
               src={service.image}
               alt={service.title}
@@ -47,12 +47,14 @@ function ServiceCard() {
                 {service.title}
               </h3>
 
-              <p className="text-black text-sm mt-3">{service.description}</p>
+              <p className="font-semibold text-black text-sm mt-3 py-4">
+                {service.description}
+              </p>
             </div>
 
             <a
               href="#"
-              className="text-[#274C77] text-sm hover:underline text-center "
+              className="text-[#274C77] text-sm hover:underline text-center font-bold py-1 underline underline-offset-3"
             >
               Reservar ahora
             </a>
