@@ -1,6 +1,6 @@
 const HeroSolo = () => {
   return (
-    <section className="px-4 md:px-16 py-10">
+    <section className="px-4 md:px-16 pt-10">
       {/* Título */}
       <div className="mb-8">
         <h1 className="font-Amarante text-6xl md:text-6xl text-black leading-none drop-shadow-lg">
