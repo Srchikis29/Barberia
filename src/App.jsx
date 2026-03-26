@@ -4,7 +4,7 @@ import Service from "./pages/service";
 import Contact from "./pages/contact";
 import Reserva from "./pages/Reserve";
 import ConfirmReserve from "./pages/confirmReserve";
-
+import NotFound from "./pages/NotFound";
 function App() {
   return (
     <Routes>
@@ -13,6 +13,7 @@ function App() {
       <Route path="/contact" element={<Contact />} />
       <Route path="/Reserve" element={<Reserva />} />
       <Route path="/Reserve/confirmReserve" element={<ConfirmReserve />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
