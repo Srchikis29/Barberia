@@ -5,6 +5,7 @@ import ChooseCut from '../components/ChooseCut'
 import ChooseBarber from '../components/ChooseBarber'
 import Footer from '../components/Footer'
 import ButtonConfirmar from '../components/BotonConfirmReserve'
+import Calendar from '../components/Calendar'
 
 
 function Reserva() {
@@ -14,6 +15,11 @@ return (
         <HeroReserve />
         <ChooseCut />
         <ChooseBarber />
+        <h1 className="text-lg block  text-[#2e759e] font-semibold mb-2.5 pl-4 pt-2 pb-1">
+            Selecciona tu horario
+        </h1>
+        
+        <Calendar />
         <ButtonConfirmar to="/Reserve/confirmReserve" />
         <Footer />
 
