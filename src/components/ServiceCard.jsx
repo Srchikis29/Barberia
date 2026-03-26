@@ -32,7 +32,7 @@ function ServiceCard() {
       {services.map((service) => (
         <div className="p-3 flex gap-4 bg-[#E7ECEF] rounded-2xl overflow-hidden">
           {/* Imagen */}
-          <div className="w-45 h-65 md:w-30 md:h-40 flex-shrink-0">
+          <div className="w-45 h-65 md:w-30 md:h-40 shrink-0">
             <img
               src={service.image}
               alt={service.title}
