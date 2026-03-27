@@ -1,22 +1,19 @@
-import Inicio from "../components/navBar"
-import HeroService from "../components/HeroService"
-import Contacto from "../components/Contacto"
-import Footer from "../components/Footer"
-import Contactanos from "../components/Contactactanos"
+import Inicio from "../components/navBar";
+import HeroService from "../components/HeroService";
+import Contacto from "../components/Contacto";
+import Footer from "../components/Footer";
+import Contactanos from "../components/Contactactanos";
 
 const Contact = () => {
-return (
+  return (
     <>
-        <Inicio />
-        <HeroService />
-        <Contacto />
-        <Contactanos />
-        <Footer />
-        
-
+      <Inicio />
+      <HeroService />
+      <Contacto />
+      <Contactanos />
+      <Footer />
     </>
-    
-)
-}
+  );
+};
 
-export default Contact
+export default Contact;

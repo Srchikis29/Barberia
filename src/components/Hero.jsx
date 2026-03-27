@@ -3,16 +3,16 @@ import Button from "./Boton";
 
 function Hero() {
   return (
-    <section className="relative w-full h-100 md:h-125">      {/* Imagen de fondo */}
+    <section className="relative w-full h-100 md:h-125">
+      {" "}
+      {/* Imagen de fondo */}
       <img
         src={barberiaAZ}
         alt="Barbería"
         className="w-full h-full object-cover"
       />
-
       {/* Fade blanco abajo */}
       <div className="absolute bottom-0 left-0 w-full h-90 bg-linear-to-b from-transparent to-white"></div>
-
       {/* Contenido */}
       <div className="absolute inset-0 flex items-end">
         <div className="px-4 md:px-20 max-w-lg text-left">

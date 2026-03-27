@@ -1,13 +1,14 @@
 import Inicio from "../components/navBar";
-
+import HeroReserve from "../components/HeroReserve";
+import Footer from "../components/Footer";
 function ConfirmReserve() {
-    return (
+  return (
     <>
-        <Inicio />
-        <h1 className='text-4xl font-bold text-center mt-20'>¡Reserva Confirmada!</h1>
-        
+      <Inicio />
+      <HeroReserve />
+      <Footer />
     </>
-    )
+  );
 }
 
-export default ConfirmReserve
+export default ConfirmReserve;

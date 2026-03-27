@@ -1,14 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
-function Button({ 
-  text = 'Agenda tu cita ahora', 
-  onClick, 
-  to, 
-  className = '', 
-  disabled = false, 
-  type = 'button' 
+function Button({
+  text = "Agenda tu cita ahora",
+  onClick,
+  to,
+  className = "",
+  disabled = false,
+  type = "button",
 }) {
-
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -41,8 +40,8 @@ function Button({
         disabled:opacity-50 disabled:cursor-not-allowed 
         disabled:hover:translate-y-0 ${className}`}
     >
-      <span className='absolute inset-0 bg-white/12 backdrop-blur-sm pointer-events-none' />
-      <span className='relative'>{text}</span>
+      <span className="absolute inset-0 bg-white/12 backdrop-blur-sm pointer-events-none" />
+      <span className="relative">{text}</span>
     </button>
   );
 }

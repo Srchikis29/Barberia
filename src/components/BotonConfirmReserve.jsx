@@ -1,14 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
-function ButtonConfirmar({ 
-  text = 'Confirmar Reserva', 
-  onClick, 
-  to, 
-  className = '', 
-  disabled = false, 
-  type = 'button' 
+function ButtonConfirmar({
+  text = "Confirmar Reserva",
+  onClick,
+  to,
+  className = "",
+  disabled = false,
+  type = "button",
 }) {
-
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -28,9 +27,10 @@ function ButtonConfirmar({
           px-8 py-3 text-lg font-semibold rounded-xl
           transition-all duration-300 ease-out
           
-          ${disabled 
-            ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-            : "text-[#1a5a8a] bg-linear-to-r from-[#9bc7f7] via-[#8ecff5] to-[#a4d8ff] shadow-lg hover:scale-105 hover:shadow-xl hover:-translate-y-1"
+          ${
+            disabled
+              ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+              : "text-[#1a5a8a] bg-linear-to-r from-[#9bc7f7] via-[#8ecff5] to-[#a4d8ff] shadow-lg hover:scale-105 hover:shadow-xl hover:-translate-y-1"
           }
 
           active:scale-95
