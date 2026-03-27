@@ -1,7 +1,8 @@
 import Inicio from "../components/navBar";
 import HeroReserve from "../components/HeroReserve";
 import Footer from "../components/Footer";
-function ConfirmReserve() {
+
+const ConfirmReserve = () => {
   return (
     <>
       <Inicio />
@@ -9,6 +10,6 @@ function ConfirmReserve() {
       <Footer />
     </>
   );
-}
+};
 
 export default ConfirmReserve;
