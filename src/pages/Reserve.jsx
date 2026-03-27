@@ -4,7 +4,6 @@ import HeroReserve from '../components/HeroReserve'
 import ChooseCut from '../components/ChooseCut'
 import ChooseBarber from '../components/ChooseBarber'
 import Footer from '../components/Footer'
-import ButtonConfirmar from '../components/BotonConfirmReserve'
 import Calendar from '../components/Calendar'
 
 
@@ -20,7 +19,6 @@ return (
         </h1>
         
         <Calendar />
-        <ButtonConfirmar to="/Reserve/confirmReserve" />
         <Footer />
 
         
