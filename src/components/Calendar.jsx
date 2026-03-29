@@ -42,7 +42,7 @@ function Calendar() {
   };
 
   return (
-    <div className="flex flex-col items-center mt-4 mb-5">
+    <div className="flex flex-col items-center ">
       {/* 🔵 TU CALENDARIO (SIN CAMBIOS VISUALES) */}
       <div className="flex justify-center">
         <style>
@@ -200,7 +200,7 @@ function Calendar() {
       {/* 🔘 BOTÓN CONFIRMAR */}
       <ButtonConfirmar
         text="Confirmar Reserva"
-        to="/Reserve/confirmReserve"
+        to="/confirmReserve"
         disabled={!selectedHour}
         className="mt-6"
       />

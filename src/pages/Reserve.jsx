@@ -5,6 +5,7 @@ import ChooseCut from "../components/ChooseCut";
 import ChooseBarber from "../components/ChooseBarber";
 import Footer from "../components/Footer";
 import Calendar from "../components/Calendar";
+import Logo from "../components/logo";
 
 function Reserva() {
   return (
@@ -18,6 +19,7 @@ function Reserva() {
       </h1>
 
       <Calendar />
+      <Logo />
       <Footer />
     </>
   );
