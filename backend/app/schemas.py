@@ -1,20 +1,13 @@
+
+
+# app/schemas.py
 from pydantic import BaseModel
-from datetime import date, time
 
-class ReservaBase(BaseModel):
+class TipoCorteCreate(BaseModel):
     nombre: str
-    telefono: str
-    email: str
-    fecha: date
-    hora: time
-    servicio: str
-    barbero: str
 
-class ReservaCreate(ReservaBase):
-    pass
-
-class Reserva(ReservaBase):
+class TipoCorte(TipoCorteCreate):
     id: int
 
     class Config:
-        from_attributes = True
+        from_attributes = True  # ← era orm_mode = True (cambio en Pydantic V2)

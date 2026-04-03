@@ -1,12 +1,13 @@
+# app/crud.py
 from sqlalchemy.orm import Session
 from . import models, schemas
 
-def crear_reserva(db: Session, reserva: schemas.ReservaCreate):
-    nueva_reserva = models.Reserva(**reserva.dict())
-    db.add(nueva_reserva)
-    db.commit()
-    db.refresh(nueva_reserva)
-    return nueva_reserva
+def obtener_cortes(db: Session):
+    return db.query(models.TipoCorte).all()
 
-def obtener_reservas(db: Session):
-    return db.query(models.Reserva).all()
+def crear_corte(db: Session, corte: schemas.TipoCorteCreate):
+    db_corte = models.TipoCorte(**corte.dict())
+    db.add(db_corte)
+    db.commit()
+    db.refresh(db_corte)
+    return db_corte
