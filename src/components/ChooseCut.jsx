@@ -1,19 +1,15 @@
 import { useState, useEffect } from "react";
 
-function ChooseCut() {
+function ChooseCut({ onSelect }) {  // ← recibe onSelect
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState("");
-  const [options, setOptions] = useState([]); // ← ya no es estático
+  const [selected, setSelected] = useState(null);
+  const [options, setOptions] = useState([]);
 
-  // Trae los cortes desde el backend al cargar el componente
   useEffect(() => {
     fetch("http://127.0.0.1:8000/cortes/")
       .then((res) => res.json())
       .then((data) => {
-        setOptions(data);              // guarda [{id:1, nombre:"Corte Clasico"}, ...]
-        if (data.length > 0) {
-          setSelected(data[0].nombre); // selecciona el primero por defecto
-        }
+        setOptions(data);
       })
       .catch((err) => console.error("Error al cargar cortes:", err));
   }, []);
@@ -25,23 +21,24 @@ function ChooseCut() {
           Selecciona tu servicio
         </label>
 
-        {/* Botón */}
         <div
           onClick={() => setOpen(!open)}
           className="font-Amarante flex justify-between items-center border border-[#3c6da4] px-3 py-1 cursor-pointer"
         >
-          <span>{selected || "Cargando..."}</span>
+          <span className={selected ? "" : "text-gray-400"}>
+            {selected ? selected : "Elige tu servicio"}
+          </span>
           <span className="font-Amarante text-[#274C77] px-2">▼</span>
         </div>
 
-        {/* Opciones */}
         {open && (
           <ul className="font-Amarante border border-[#3c6da4] border-t-0 bg-white text-[#3f89b3]">
             {options.map((option) => (
               <li
-                key={option.id}        // ← usamos el id real de la DB
+                key={option.id}
                 onClick={() => {
                   setSelected(option.nombre);
+                  if (onSelect) onSelect(option.nombre); // ← reporta al padre
                   setOpen(false);
                 }}
                 className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
