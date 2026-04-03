@@ -35,29 +35,39 @@ function Calendar({
   }, []);
 
   useEffect(() => {
-    const fetchHoras = async () => {
-      setLoading(true);
-      setError(null);
-      setSelectedHour(null);
-      if (onHourChange) onHourChange(null); // resetea hora en el padre
-      try {
-        const res = await fetch(
-          `${API_URL}/citas/ocupadas?fecha=${formatDate(selectedDate)}`
-        );
-        if (!res.ok) throw new Error();
-        const data = await res.json();
-        setBookedHours(data.horas_ocupadas);
-      } catch {
-        setError("No se pudieron cargar los horarios.");
-        setBookedHours([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchHoras();
-  }, [selectedDate]);
+  if (!selectedBarber) {
+    setBookedHours([]);
+    return;
+  }
 
-  const availableHours = ALL_HOURS.filter((h) => !bookedHours.includes(h));
+  const fetchHoras = async () => {
+    setLoading(true);
+    setError(null);
+    setSelectedHour(null);
+    if (onHourChange) onHourChange(null);
+
+    try {
+      const url = `${API_URL}/citas/ocupadas?fecha=${formatDate(selectedDate)}&barbero=${encodeURIComponent(selectedBarber)}`;
+
+      const res = await fetch(url);
+      if (!res.ok) throw new Error();
+
+      const data = await res.json();
+      setBookedHours(data.horas_ocupadas);
+    } catch {
+      setError("No se pudieron cargar los horarios.");
+      setBookedHours([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchHoras();
+}, [selectedDate, selectedBarber]);
+
+  const availableHours = selectedBarber
+    ? ALL_HOURS.filter((h) => !bookedHours.includes(h))
+    : [];
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -69,24 +79,52 @@ function Calendar({
     if (onHourChange) onHourChange(hour); // reporta hora al padre
   };
 
-  const handleConfirm = () => {
+const handleConfirm = async () => {
   if (!allSelected) {
     setError("Debes seleccionar barbero, servicio, fecha y hora.");
     return;
   }
 
-  // 🔥 Guardamos la reserva temporal
-  const reservaTemp = {
-    barbero: selectedBarber,
-    servicio: selectedService,
+  setLoading(true);
+  setError(null);
+
+  const reserva = {
     fecha: formatDate(selectedDate),
     hora: selectedHour,
+    barbero: selectedBarber,
+    servicio: selectedService,
   };
 
-  localStorage.setItem("reservaTemp", JSON.stringify(reservaTemp));
+  try {
+    // 🔥 GUARDAR EN BASE DE DATOS
+    const res = await fetch(`${API_URL}/citas/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(reserva),
+    });
 
-  // 👉 Ir a pantalla final
-  onConfirm();
+    // ⛔ Si la hora ya fue tomada en ese momento
+    if (res.status === 409) {
+      setError("⚠️ Esa hora acaba de ser reservada. Elige otra.");
+      setLoading(false);
+      return;
+    }
+
+    if (!res.ok) throw new Error();
+
+    // 💾 Guardar también en localStorage para la siguiente pantalla
+    localStorage.setItem("reservaTemp", JSON.stringify(reserva));
+
+    // 👉 Ir al formulario final
+    onConfirm();
+
+  } catch (err) {
+    setError("Error al guardar la reserva. Intenta de nuevo.");
+  } finally {
+    setLoading(false);
+  }
 };
 
   return (
@@ -153,6 +191,10 @@ function Calendar({
 
         {loading ? (
           <p className="text-center text-gray-400 text-sm">Cargando horarios...</p>
+        ) : !selectedBarber ? (
+          <p className="text-center text-gray-400 text-sm">
+            Selecciona un barbero para ver horarios.
+          </p>
         ) : availableHours.length === 0 ? (
           <p className="text-center text-gray-400 text-sm">
             No hay horarios disponibles para este día.

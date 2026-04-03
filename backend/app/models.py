@@ -15,9 +15,11 @@ class Barbero(Base):                                          # ← nuevo
 
 class Cita(Base):
     __tablename__ = "citas"
-    id    = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True)
     fecha = Column(Date, nullable=False)
-    hora  = Column(String(5), nullable=False)  # Ej: "09:00"
+    hora = Column(String(5), nullable=False)  # "09:00"
+    barbero = Column(String, nullable=False)
+    servicio = Column(String, nullable=False)  
 
 class Reserva(Base):
     __tablename__ = "reservas"

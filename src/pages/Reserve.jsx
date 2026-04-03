@@ -17,10 +17,10 @@ function Reserva() {
   const [selectedHour, setSelectedHour] = useState(null);
 
   const allSelected =
-    selectedCut !== null &&
-    selectedBarber !== null &&
-    selectedDate !== null &&
-    selectedHour !== null;
+  selectedCut &&
+  selectedBarber &&
+  selectedDate &&
+  selectedHour;
 
   const handleConfirm = () => {
     if (!allSelected) return;
@@ -48,6 +48,8 @@ function Reserva() {
       </h1>
 
       <Calendar
+        selectedBarber={selectedBarber}   // 🔥 FALTABA ESTO
+        selectedService={selectedCut}     // 🔥 Y ESTO
         onDateChange={setSelectedDate}
         onHourChange={setSelectedHour}
         onConfirm={handleConfirm}

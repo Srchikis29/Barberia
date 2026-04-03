@@ -8,8 +8,12 @@ from ..database import get_db
 router = APIRouter(prefix="/citas", tags=["citas"])
 
 @router.get("/ocupadas")
-def horas_ocupadas(fecha: date, db: Session = Depends(get_db)):
-    horas = crud.obtener_horas_ocupadas(db, fecha)
+def horas_ocupadas(
+    fecha: date,
+    barbero: str,   # 👈 NUEVO PARAMETRO
+    db: Session = Depends(get_db)
+):
+    horas = crud.obtener_horas_ocupadas(db, fecha, barbero)
     return {"fecha": str(fecha), "horas_ocupadas": horas}
 
 @router.post("/", response_model=schemas.Cita, status_code=201)

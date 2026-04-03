@@ -21,14 +21,32 @@ class Barbero(BarberoCreate):
     class Config:
         from_attributes = True
 
-class CitaCreate(BaseModel):
+class CitaBase(BaseModel):
     fecha: date   # "2026-04-05"
-    hora: str     # "09:00"
+    hora: str  
+    barbero: str
+    servicio: str   # "09:00"
 
-class Cita(CitaCreate):
+class CitaCreate(CitaBase):
+    pass
+
+class Cita(BaseModel):
     id: int
+    fecha: date
+    hora: str
+    barbero: str
+    servicio: str
+
     class Config:
-        from_attributes = True
+        from_attributes = True 
+
+    # 🔥 CONVERTIR time → "HH:MM"
+    @field_validator("hora", mode="before")
+    @classmethod
+    def convert_time(cls, v):
+        if isinstance(v, time):
+            return v.strftime("%H:%M")
+        return v
 
 class ReservaCreate(BaseModel):
     nombre: str

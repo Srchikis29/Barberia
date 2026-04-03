@@ -26,15 +26,19 @@ def crear_barbero(db: Session, barbero: schemas.BarberoCreate):
 
 # --- Citas ---
 
-def obtener_horas_ocupadas(db: Session, fecha: date):
-    citas = db.query(models.Cita).filter(models.Cita.fecha == fecha).all()
+def obtener_horas_ocupadas(db: Session, fecha: date, barbero: str = None):
+    query = db.query(models.Cita).filter(models.Cita.fecha == fecha)
+    if barbero:
+        query = query.filter(models.Cita.barbero == barbero)
+    citas = query.all()
     return [c.hora for c in citas]
 
 def crear_cita(db: Session, cita: schemas.CitaCreate):
-    # Verificar si ya existe esa fecha+hora
+    # Verificar si ya existe esa fecha+hora+barbero
     existe = db.query(models.Cita).filter(
         models.Cita.fecha == cita.fecha,
-        models.Cita.hora == cita.hora
+        models.Cita.hora == cita.hora,
+        models.Cita.barbero == cita.barbero
     ).first()
     if existe:
         return None  # El router manejará el error 409
