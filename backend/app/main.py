@@ -2,7 +2,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .database import Base, engine
-from .routers import cortes
+from .routers import cortes, barberos
 
 # Crea las tablas en la base de datos automáticamente
 Base.metadata.create_all(bind=engine)
@@ -20,6 +20,7 @@ app.add_middleware(
 
 # Registra las rutas de cortes
 app.include_router(cortes.router)
+app.include_router(barberos.router)
 
 @app.get("/")
 def root():

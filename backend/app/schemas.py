@@ -11,3 +11,11 @@ class TipoCorte(TipoCorteCreate):
 
     class Config:
         from_attributes = True  # ← era orm_mode = True (cambio en Pydantic V2)
+
+class BarberoCreate(BaseModel):                
+    nombre: str
+
+class Barbero(BarberoCreate):                  
+    id: int
+    class Config:
+        from_attributes = True
