@@ -1,4 +1,4 @@
-import barberiaAZ from "../assets/barberiaAZ.jpg";
+import barberiaAZ from "../assets/BarberiaAZ.jpg";
 import Button from "./Boton";
 
 function Hero() {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import chikisImg from "../assets/chikisImg.jpg";
-import miloImg from "../assets/miloImg.jpg";
-import juanImg from "../assets/juanImg.jpg";
+import miloImg from "../assets/MiloImg.jpg";
+import juanImg from "../assets/JuanImg.jpg";
 
 const barberImages = {
   Chiki: chikisImg,

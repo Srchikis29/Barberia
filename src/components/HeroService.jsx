@@ -1,5 +1,5 @@
 import React from "react";
-import barberiaBN from "../assets/barberiaBN.jpg";
+import barberiaBN from "../assets/BarberiaBN.jpg";
 
 function HeroService() {
   return (
