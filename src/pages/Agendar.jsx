@@ -44,9 +44,9 @@ function Agendar() {
     };
 
     console.log("Reserva FINAL enviada:", reserva);
-
+    const API_URL = import.meta.env.VITE_API_URL;
     try {
-        const res = await fetch("http://localhost:8000/reservas/", {
+        const res = await fetch(`${API_URL}/reservas/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(reserva),
