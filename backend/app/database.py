@@ -10,7 +10,10 @@ load_dotenv()  # Lee las variables del archivo .env
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 # Motor de conexión a PostgreSQL
-engine = create_engine(DATABASE_URL)
+engine = create_engine(
+    DATABASE_URL,
+    connect_args={"sslmode": "require"}
+)
 
 # Cada petición tendrá su propia sesión de base de datos
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
