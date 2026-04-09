@@ -17,7 +17,7 @@ function Hero() {
       <div className="absolute inset-0 flex items-end">
         <div className="px-4 md:px-20 max-w-lg text-left">
           <h1 className="font-Amarante text-6xl md:text-6xl text-black leading-none drop-shadow-lg">
-            LA BARBERIA de milo y chiki
+            LA BARBERIA 
           </h1>
 
           <p className="text-[#6096BA] text-2xl font-Amarante">
