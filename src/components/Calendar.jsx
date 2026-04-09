@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ButtonConfirmar from "./BotonConfirmReserve";
 
-const API_URL = "import.meta.env.VITE_API_URL";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const ALL_HOURS = [
   "09:00", "10:00", "11:00", "12:00",
