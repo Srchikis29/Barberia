@@ -15,7 +15,7 @@ function ChooseBarbero({ onSelect }) {
   const [barberos, setBarberos] = useState([]);
 
   useEffect(() => {
-    fetch(fetch(`${API_URL}/barberos/`))
+    fetch(`${API_URL}/barberos/`)
       .then((res) => res.json())
       .then((data) => setBarberos(data))
       .catch((err) => console.error("Error al cargar barberos:", err));
