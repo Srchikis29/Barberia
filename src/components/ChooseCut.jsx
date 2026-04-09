@@ -4,15 +4,16 @@ function ChooseCut({ onSelect }) {  // ← recibe onSelect
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(null);
   const [options, setOptions] = useState([]);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/cortes/")
+    fetch(`${API_URL}/cortes/`)
       .then((res) => res.json())
       .then((data) => {
         setOptions(data);
       })
       .catch((err) => console.error("Error al cargar cortes:", err));
-  }, []);
+  }, [API_URL]);
 
   return (
     <>

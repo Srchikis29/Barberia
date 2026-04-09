@@ -8,13 +8,14 @@ const barberImages = {
   Milo: miloImg,
   Juan: juanImg
 };
+const API_URL = import.meta.env.VITE_API_URL;
 
 function ChooseBarbero({ onSelect }) {
   const [selected, setSelected] = useState(null);
   const [barberos, setBarberos] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/barberos/")
+    fetch(fetch(`${API_URL}/barberos/`))
       .then((res) => res.json())
       .then((data) => setBarberos(data))
       .catch((err) => console.error("Error al cargar barberos:", err));
