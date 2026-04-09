@@ -8,7 +8,7 @@ from .routers import cortes, barberos, citas, reservas
 
 app = FastAPI(title="Barbería API")
 
-origins = ["*"]  # temporal para pruebas
+origins = ["https://barberia-lake.vercel.app",]  # temporal para pruebas
 
 app.add_middleware(
     CORSMiddleware,
