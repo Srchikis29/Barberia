@@ -1,19 +1,14 @@
-# app/main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .database import Base, engine
 from .routers import cortes, barberos, citas, reservas
 
-
-
-# Crea las tablas en la base de datos automáticamente
-Base.metadata.create_all(bind=engine)
+# ⚠️ opcional en producción
+# Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Barbería API")
 
-origins = [
-    "http://localhost:5173",  # React Vite
-]
+origins = ["*"]  # temporal para pruebas
 
 app.add_middleware(
     CORSMiddleware,
@@ -22,7 +17,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-# Registra las rutas de cortes
+
 app.include_router(cortes.router)
 app.include_router(barberos.router)
 app.include_router(citas.router)
